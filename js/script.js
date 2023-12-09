@@ -31,6 +31,30 @@ document.addEventListener("DOMContentLoaded", function () {
     listenerBtn.push(document.getElementById("num8"));
     listenerBtn.push(document.getElementById("num9"));
 
+        // Nuevo botón para convertir a Fahrenheit
+        var btnConvertirFahrenheit = document.getElementById("convertirFahrenheit");
+        btnConvertirFahrenheit.addEventListener("click", convertirAFahrenheit);
+    
+        function convertirAFahrenheit() {
+            try {
+                // Obtén el valor actual en grados Celsius desde la pantalla
+                var gradosCelsius = parseFloat(tela.value);
+    
+                // Verifica si el valor es un número válido
+                if (!isNaN(gradosCelsius)) {
+                    // Realiza la conversión a Fahrenheit (F = (C * 9/5) + 32)
+                    var gradosFahrenheit = (gradosCelsius * 9/5) + 32;
+    
+                    // Muestra el resultado en la pantalla
+                    tela.value = gradosFahrenheit.toFixed(2) + " °F";
+                } else {
+                    throw "Ingrese un valor válido en grados Celsius";
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
     //Adicionando evento de click
     for (var i = 0; i < listenerBtn.length; i++) {
         listenerBtn[i].addEventListener("click", passarValorTela);
