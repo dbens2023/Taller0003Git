@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (valorCalculado || valorCalculado == "0") {
                 tela.value = valorCalculado;
             } else {
-                throw "erro";
+                throw "error";
             }
         } catch (e) {
             console.error(e);
